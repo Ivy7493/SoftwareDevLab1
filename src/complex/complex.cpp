@@ -5,11 +5,12 @@
 #include <complex>	// contains the complex class definition
 
 using namespace std; // cout, endl, complex are all part of this namespace
+using complexf = complex<float>;
 
 int main()
-{
-	auto num1 = complex<float>{2.0, 2.0};  // use auto for type deduction
-	auto num2 = complex<float>{4.0, -2.0}; // use uniform initialisation syntax (curly braces)
+{	
+	auto num1 = complexf{2.0, 2.0};  // use auto for type deduction
+	auto num2 = complexf{4.0, -2.0}; // use uniform initialisation syntax (curly braces)
 
 	auto answer = num1 * num2; // type deduced for 'answer' is: complex<float>
 

@@ -3,9 +3,15 @@
 
 #include <iostream>	// contains the definition of cout, endl
 #include <complex>	// contains the complex class definition
+#include <cmath>
 
 using namespace std; // cout, endl, complex are all part of this namespace
 using complexf = complex<float>;
+
+
+void RootSolver();
+void DisplayComplex(complexf _input);
+
 
 int main()
 {	
@@ -23,6 +29,61 @@ int main()
 
 	return 0;
 }
+
+void DisplayComplex(complexf _input) {
+	if (_input.imag() == 0) {
+		cout << "x = " << _input.real() << endl;
+	}
+	else if (_input.imag() < 0) {
+		cout << "x = " << _input.real() << " - " << abs(_input.imag()) << "j " << endl;
+	}
+	else if (_input.imag() > 0) {
+		cout << "x = " << _input.real() << " + " << _input.imag() << "j " << endl;
+	}
+
+
+
+}
+
+void RootSolver() {
+
+	auto Input = string("");
+	cout << "Input Value A: " << endl;
+	int a, b, c;
+	auto ans = complexf{ 0.0,0.0 };
+	cin >> a;
+	cout << "Input Vale B: " << endl;
+	cin >> b;
+	cout << "Input Value C: " << endl;
+	cin >> c;
+	auto aplx = complexf{ (float)a,0 };
+	auto bplx = complexf{ (float)b,0 };
+	auto cplx = complexf{ (float)c,0 };
+	auto NegativeCheck = aplx * cplx;
+	NegativeCheck *= -4;
+	NegativeCheck += (bplx * bplx);
+	NegativeCheck = sqrt(NegativeCheck);
+	auto bottom = aplx;
+	bottom *= 2;
+	auto ans1 = (-bplx + NegativeCheck) / (bottom);
+	auto ans2 = (-bplx - NegativeCheck) / (bottom);
+	DisplayComplex(ans1);
+	DisplayComplex(ans2);
+	cout << "Calaculate Another Root? y for yes, q for quit " << endl;
+	string j;
+	cin >> j;
+	if (j == "y") {
+		RootSolver();
+	}
+	else if (j == "q") {
+		return;
+	}
+
+	return;
+}
+
+
+
 
 
 //Exercise 3.1

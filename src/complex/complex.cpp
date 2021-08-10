@@ -23,3 +23,9 @@ int main()
 	return 0;
 }
 
+
+//Exercise 3.1
+// ++ in c++ is the same as saying i = i + 1 where i has to be a primitive datatype such as an int or float
+// The reason saying answer++ is wrong is because answer will be resolved to the base type of complex<float> which cannot be iterated as there are two elements contained within the datatype and thus, it is not a primitive and more of a class or enum
+// the compiler doesnt know what you are tring to inc cause there are multiple variables that could be inc.
+
